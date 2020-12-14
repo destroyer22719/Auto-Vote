@@ -1,15 +1,6 @@
 const puppeteer = require('puppeteer');
 
 const voteAll = async() => {
-  const minecraftMp = async () => {
-    const browser = await puppeteer.launch({headless: false});
-    const page = await browser.newPage();
-    await page.goto('https://minecraft-mp.com/server/201496/vote/', {"waitUntil":"networkidle0"});
-    await page.type("#nickname", process.env.USERNAME, 1000);
-    await page.click('#accept');
-    await page.waitFor(2000)
-    await page.click('#voteBtn')
-  }
   // minecraftMp();
   const topgOrg = async () => {
     const browser = await puppeteer.launch({
