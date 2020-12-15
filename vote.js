@@ -1,9 +1,17 @@
 const puppeteer = require('puppeteer');
+const dotenv = require('dotenv');
+const dotenvParseVariables = require('dotenv-parse-variables');
+
+let env = dotenv.config({})
+if (env.error) throw env.error;
+env = dotenvParseVariables(env.parsed);
+
+!env.DISPLAY ? env.DISPLAY = false : env.DISPLAY; 
 
 const voteAll = async() => {
   const topgOrg = async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: !env.DISPLAY,
       args: ['--disable-dev-shm-usage']
     });
     const page = await browser.newPage();
@@ -26,7 +34,7 @@ const voteAll = async() => {
 
   const minecrafatServerList = async() => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: !env.DISPLAY,
       args: ['--disable-dev-shm-usage'],
     });
     const page = await browser.newPage();
@@ -53,7 +61,7 @@ const voteAll = async() => {
 
   const topMinecraftServers = async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: !env.DISPLAY,
       // args: ['--disable-dev-shm-usage'],
     });
     const page = await browser.newPage();
