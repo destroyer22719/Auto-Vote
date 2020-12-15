@@ -11,9 +11,11 @@ This can't work with [Minecraft MP](https://minecraft-mp.com/server/201496/vote/
 
 ## How to Use
 
-You MUST have [NodeJS](https://nodejs.org/en/) installed, above v12
+You MUST have [NodeJS](https://nodejs.org/en/) installed, this is tested on v14 but should work on v15 as well
 
+- Check if NodeJS is installed by running the command `node -v`
 - Download this repo
+- Change the directory to this repo by opening CMD (windows) or Terminal (Mac or Linux) and run the command `cd "/path/to/this/file"`
 - Run `npm install`
 - There is a file named `.env` change `USERNAME=hello world` to `USERNAME=<your minecraft username>`
 - Then run `node vote.js`
