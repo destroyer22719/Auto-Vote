@@ -16,7 +16,7 @@ const voteAll = async() => {
     });
     const page = await browser.newPage();
     await page.goto('https://topg.org/Minecraft/in-606527', {"waitUntil":"domcontentloaded"});
-    await page.type("#username", process.env.USERNAME);
+    await page.type("#username", env.USERNAME);
     await page.waitForTimeout(2000)
     await page.click("#v");
     await page.waitForNavigation({waitUntil:"domcontentloaded"})
@@ -39,11 +39,11 @@ const voteAll = async() => {
     });
     const page = await browser.newPage();
     await page.goto('https://minecraft-server-list.com/server/453566/vote/', {"waitUntil":"domcontentloaded"});
-    // await page.type("#ignn", process.env.USERNAME);
+    // await page.type("#ignn", env.USERNAME);
     await page.evaluate((username) => {
       const input = document.getElementById("ignn");
       input.value = username;
-    }, process.env.USERNAME);
+    }, env.USERNAME);
 
     await page.waitForTimeout(2000);
     await page.click("#voteform > input.buttonsmall.pointer.green.size10");
@@ -66,7 +66,7 @@ const voteAll = async() => {
     });
     const page = await browser.newPage();
     await page.goto('https://topminecraftservers.org/server/4135', {"waitUntil":"domcontentloaded"});
-    // await page.type("#ignn", process.env.USERNAME);
+    // await page.type("#ignn", env.USERNAME);
     if (page.$("body > div.container > div > div > div > div.col-md-4 > div.text-center.small")) {
       const text = await page.evaluate(async () => {
         const error = document.querySelector("body > div.container > div > div > div > div.col-md-4 > div.text-center.small");
@@ -81,7 +81,7 @@ const voteAll = async() => {
     await page.evaluate((username) => {
       const input = document.getElementById("username");
       input.value = username;
-    }, process.env.USERNAME);
+    }, env.USERNAME);
 
     await page.click("#voteButton");
 
