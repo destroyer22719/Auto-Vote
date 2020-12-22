@@ -66,7 +66,7 @@ const voteAll = async() => {
     });
     const page = await browser.newPage();
     await page.goto('https://topminecraftservers.org/server/4135', {"waitUntil":"domcontentloaded"});
-    if (page.$("body > div.container > div > div > div > div.col-md-4 > button [disabled]")) {
+    if (page.$("body > div.container > div > div > div > div.col-md-4 > button[disabled]")) {
       const text = await page.evaluate(async () => {
         const error = document.querySelector("body > div.container > div > div > div > div.col-md-4 > div.text-center.small");
         return error.innerText;
